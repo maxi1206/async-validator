@@ -1,0 +1,28 @@
+
+
+<div *ngIf="showForm">
+    <div>{{profileForm.statusChanges | async}}</div>
+    <div>{{profileForm.get('firstName').statusChanges | async}}</div>
+
+    <div>{{profileForm.status}}</div>
+    <div>{{profileForm.get('firstName').status}}</div>
+
+    <form [formGroup]="profileForm">
+
+        <label for="first-name">First Name: </label>
+        <input
+          id="first-name"
+          type="text"
+          formControlName="firstName">
+        <div *ngIf="profileForm.get('firstName').hasError('usernameAlreadyExists')">ERROR</div>
+
+        <label for="last-name">Last Name: </label>
+        <input
+          id="last-name"
+          type="text"
+          formControlName="lastName">
+
+    </form>
+</div>
+
+<button (click)="showForm = !showForm">Hide/Show Form</button>
