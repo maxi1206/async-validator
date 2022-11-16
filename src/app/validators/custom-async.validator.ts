@@ -4,7 +4,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {first, map} from 'rxjs/operators';
 import {UserServiceService} from '../services/user-service.service';
 
 export class UsernameValidator {
@@ -15,7 +15,7 @@ export class UsernameValidator {
         .pipe(
           map((result: boolean) =>
             result ? { usernameAlreadyExists: true } : null
-          )
+          ), first()
         );
     };
   }

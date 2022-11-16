@@ -1,11 +1,11 @@
 
 
 <div *ngIf="showForm">
-    <div>{{profileForm.statusChanges | async}}</div>
-    <div>{{profileForm.get('firstName').statusChanges | async}}</div>
+    <div><span>form.statusChanges: </span>{{profileForm.statusChanges | async}}</div>
+    <div><span>form.getFirstNameControlStatusChanges: </span>{{profileForm.get('firstName').statusChanges | async}}</div>
 
-    <div>{{profileForm.status}}</div>
-    <div>{{profileForm.get('firstName').status}}</div>
+    <div><span>form.status: </span>{{profileForm.status}}</div>
+    <div><span>form.getFirstNameControlStatus: </span>{{profileForm.get('firstName').status}}</div>
 
     <form [formGroup]="profileForm">
 
